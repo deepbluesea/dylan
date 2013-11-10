@@ -11,24 +11,8 @@ import syllables
 rhyme_entries = nltk.corpus.cmudict.entries()
 pronunciation_dictionary = nltk.corpus.cmudict.dict()
 
-mega_sentences = ( nltk.corpus.brown.sents() + 
-                nltk.corpus.inaugural.sents() + 
-                nltk.corpus.reuters.sents() + 
-                nltk.corpus.webtext.sents() + 
-                nltk.corpus.inaugural.sents() + 
-                nltk.corpus.gutenberg.sents("carroll-alice.txt") +
-                nltk.corpus.gutenberg.sents("austen-emma.txt") + 
-                nltk.corpus.gutenberg.sents("austen-sense.txt") + 
-                nltk.corpus.gutenberg.sents("blake-poems.txt") + 
-                nltk.corpus.gutenberg.sents("bible-kjv.txt") + 
-                nltk.corpus.gutenberg.sents("chesterton-ball.txt") + 
-                nltk.corpus.gutenberg.sents("melville-moby_dick.txt") + 
-                nltk.corpus.gutenberg.sents("milton-paradise.txt") + 
-                nltk.corpus.gutenberg.sents("whitman-leaves.txt") + 
-                nltk.corpus.gutenberg.sents("austen-persuasion.txt") + 
-                nltk.corpus.gutenberg.sents("shakespeare-hamlet.txt") + 
-                nltk.corpus.gutenberg.sents("shakespeare-macbeth.txt") ) 
-
+reader = nltk.corpus.reader.PlaintextCorpusReader(os.getcwd(), "corpus.txt")
+lyrics = reader.sents()
 
 last_word_sentences = defaultdict(list)
 
@@ -43,7 +27,7 @@ if os.path.exists( "sentences.gz" ):
     with gzip.open( "sentences.gz", "r" ) as cache_file:
         last_word_sentences = cPickle.load( cache_file )
 else:
-    for sentence in mega_sentences:
+    for sentence in lyrics:
         lw = last_word(sentence)
         last_word_sentences[ lw ].append(sentence)
     with gzip.open( "sentences.gz", "w") as cache_file:
