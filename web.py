@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys, flask, os, codecs
+import rhyme
 
 app = flask.Flask(__name__)
 
@@ -9,8 +10,12 @@ app = flask.Flask(__name__)
 def main():
     return flask.render_template("index.html")
 
-@app.route("/challenge")
+@app.route("/challenge", methods=['GET', 'POST'])
 def challenge():
+    if flask.request.method == 'POST':
+        challenge = flask.request.form['challenge']
+        fire = rhyme.rhyme(flask.request.form['challenge'])
+        return flask.render_template("response.html", challenge=challenge, fire=fire)
     return flask.render_template("challenge.html")
 
 @app.route("/response")

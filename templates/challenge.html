@@ -2,8 +2,12 @@
 {% block content %}
     <div class="jumbotron">
         <h1>Issue a challenge:</h1><br>
-        <textarea class="form-control" rows="5"></textarea><br>
-        <p><a class="btn btn-lg btn-warning" href="/response" role="button">Spit it!</a></p>
+        <form role="form" method="post">
+            <textarea class="form-control" rows="5" name="challenge"></textarea><br>
+            <p>
+            <button type="submit" name="challenge" class="btn btn-lg btn-warning">Spit
+                it!</button></p>
+        </form>
     </div>
 
     <div class="row marketing">
@@ -11,7 +15,7 @@
             <h3>Suggested challenges</h3><br>
             <p class="lead">&bull; I am not a rapper</p>
             <p class="lead">&bull; Because I spit hot fire</p>
-            <p class="lead"></p>
+            <p class="lead">&bull; I'm beginning to feel like a rap god</p>
         </div>
     </div>
 {% endblock %}
