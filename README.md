@@ -1,4 +1,4 @@
 freezing-adventure
 ==================
 
-Making news headlines more appealing to consume
+Spit hot fire and have your computer respond.
