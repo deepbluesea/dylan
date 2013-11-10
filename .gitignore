@@ -41,3 +41,6 @@ nosetests.xml
 # Ignore extremely large corpus
 corpus.txt
 sentences.gz
+
+# Ignore bootstrap
+static/bootstrap
