@@ -18,10 +18,6 @@ def challenge():
         return flask.render_template("response.html", challenge=challenge, fire=fire)
     return flask.render_template("challenge.html")
 
-@app.route("/response")
-def response():
-    return flask.render_template("response.html")
-
 @app.route("/battle")
 def battle():
     return flask.render_template("battle.html")
