@@ -38,9 +38,5 @@ nosetests.xml
 # OS-generated files
 .DS_Store
 
-# Ignore extremely large corpus
-corpus.txt
-sentences.gz
-
 # Ignore bootstrap
 static/bootstrap
