@@ -13,7 +13,7 @@ nltk.data.path.append('./nltk_data/')
 rhyme_entries = nltk.corpus.cmudict.entries()
 pronunciation_dictionary = nltk.corpus.cmudict.dict()
 
-reader = nltk.corpus.reader.PlaintextCorpusReader(os.getcwd(), "/nltk_data/corpora/corpus.txt")
+reader = nltk.corpus.reader.PlaintextCorpusReader(os.getcwd() + "/nltk_data/corpora/" , "corpus.txt")
 lyrics = reader.sents()
 
 last_word_sentences = defaultdict(list)
